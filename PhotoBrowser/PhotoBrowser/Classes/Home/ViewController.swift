@@ -12,27 +12,57 @@ private let ID = "cell"
 
 //collectionView
 class ViewController: UICollectionViewController {
+    
+    private lazy var shops : [Shop] = [Shop]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //注册cell
-        collectionView?.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: ID)
+        
+        //请求数据
+        loadData(0)
+    
     }
 }
-
+//请求数据
+extension ViewController {
+    
+    private func loadData(offSet : Int) {
+        AFNTool.shareAFN.loadHomeData(offSet) { (resoult, error) in
+            if error != nil {
+                print(error)
+                return
+            }
+            
+            guard let resoultArray = resoult else {
+                print("数据不正确")
+                return
+            }
+            for resoultDict in resoultArray {
+                let shop = Shop(dict: resoultDict)
+                self.shops.append(shop)
+            }
+            self.collectionView?.reloadData()
+        }
+    }
+}
 
 // MARK:- 数据源方法
 extension ViewController {
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return self.shops.count
+     
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(ID, forIndexPath: indexPath)
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(ID, forIndexPath: indexPath) as! CHViewCell
         
-        cell.backgroundColor = UIColor.grayColor()
+        cell.shop = shops[indexPath.item]
+        
+        if indexPath.item == self.shops.count - 1 {
+            loadData(self.shops.count)
+        }
         
         return cell
     }

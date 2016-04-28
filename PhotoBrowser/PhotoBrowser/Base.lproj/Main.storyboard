@@ -12,21 +12,31 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="ula-JO-1Bu">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="H8V-5M-XqC" customClass="CHFlowLayout" customModule="PhotoBrowser" customModuleProvider="target">
-                            <size key="itemSize" width="50" height="50"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
+                        <collectionViewLayout key="collectionViewLayout" id="yf9-EB-Cw5" customClass="CHFlowLayout" customModule="PhotoBrowser" customModuleProvider="target"/>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cell" id="St1-eL-2gx">
-                                <rect key="frame" x="0.0" y="64" width="50" height="50"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="St1-eL-2gx" customClass="CHViewCell" customModule="PhotoBrowser" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="122" height="143"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="122" height="143"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tLv-V6-GeN">
+                                            <rect key="frame" x="0.0" y="0.0" width="122" height="143"/>
+                                        </imageView>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="tLv-V6-GeN" firstAttribute="leading" secondItem="St1-eL-2gx" secondAttribute="leading" id="C9B-QN-4s8"/>
+                                    <constraint firstAttribute="bottom" secondItem="tLv-V6-GeN" secondAttribute="bottom" id="IQf-hI-hRu"/>
+                                    <constraint firstItem="tLv-V6-GeN" firstAttribute="top" secondItem="St1-eL-2gx" secondAttribute="top" id="gwY-3y-Izd"/>
+                                    <constraint firstAttribute="trailing" secondItem="tLv-V6-GeN" secondAttribute="trailing" id="vmW-7s-7ro"/>
+                                </constraints>
+                                <size key="customSize" width="122" height="143"/>
+                                <connections>
+                                    <outlet property="imageView" destination="tLv-V6-GeN" id="j9E-FH-y8h"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>

@@ -48,12 +48,12 @@ extension AFNTool {
 //请求首页数据
 extension AFNTool {
 
-    func loadData(finished:(resoult : [[String : AnyObject]]?, error : NSError?)->()) {
+    func loadHomeData(offSet : Int, finished:(resoult : [[String : AnyObject]]?, error : NSError?)->()) {
         // 1.获取请求的URLString
         let urlString = "http://mobapi.meilishuo.com/2.0/twitter/popular.json"
         
         // 2.获取请求的参数
-        let parameters = ["offset" : "0", "limit" : "30", "access_token" : "b92e0c6fd3ca919d3e7547d446d9a8c2"]
+        let parameters = ["offset" : "\(offSet)", "limit" : "30", "access_token" : "b92e0c6fd3ca919d3e7547d446d9a8c2"]
         
         // 3. 发送请求
         requst(.GET, URLString: urlString, parameters: parameters) { (resoult, error) -> () in
