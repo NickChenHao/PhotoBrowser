@@ -40,6 +40,7 @@ extension ViewController {
             for resoultDict in resoultArray {
                 let shop = Shop(dict: resoultDict)
                 self.shops.append(shop)
+                
             }
             self.collectionView?.reloadData()
         }
@@ -66,5 +67,26 @@ extension ViewController {
         
         return cell
     }
+    
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        showPhotoBrowser(indexPath)
+    }
+    
 }
+//点击图片modal
+extension ViewController {
+    func showPhotoBrowser(indexPath : NSIndexPath) {
+        
+        let vc = CHShowPhotoViewController()
+        
+        vc.shop = shops
+        vc.indexPath = indexPath
+        
+        presentViewController(vc, animated: true, completion: nil)
+        
+    }
+    
+}
+
+
 

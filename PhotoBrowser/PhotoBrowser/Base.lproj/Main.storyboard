@@ -21,7 +21,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="122" height="143"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tLv-V6-GeN">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tLv-V6-GeN">
                                             <rect key="frame" x="0.0" y="0.0" width="122" height="143"/>
                                         </imageView>
                                     </subviews>

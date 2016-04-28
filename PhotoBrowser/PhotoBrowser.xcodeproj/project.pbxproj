@@ -18,6 +18,10 @@
 		019433A41CD1B047005863FA /* AFNTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019433A31CD1B047005863FA /* AFNTool.swift */; };
 		019433A61CD1C04B005863FA /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019433A51CD1C04B005863FA /* Shop.swift */; };
 		019433A81CD1C374005863FA /* CHViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019433A71CD1C373005863FA /* CHViewCell.swift */; };
+		019433AC1CD1FF09005863FA /* CHShowPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019433AB1CD1FF09005863FA /* CHShowPhotoViewController.swift */; };
+		019433B01CD20384005863FA /* UIButton-Extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019433AF1CD20384005863FA /* UIButton-Extenstion.swift */; };
+		019433B21CD20681005863FA /* CHPhotoFlowlayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019433B11CD20681005863FA /* CHPhotoFlowlayout.swift */; };
+		019433B41CD20946005863FA /* CHPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019433B31CD20946005863FA /* CHPhotoCell.swift */; };
 		B2E8BBC24701DD367ABB7B1F /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B4BE24ABDF8E0AC7BBFA9A /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +60,10 @@
 		019433A31CD1B047005863FA /* AFNTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AFNTool.swift; sourceTree = "<group>"; };
 		019433A51CD1C04B005863FA /* Shop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
 		019433A71CD1C373005863FA /* CHViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHViewCell.swift; sourceTree = "<group>"; };
+		019433AB1CD1FF09005863FA /* CHShowPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHShowPhotoViewController.swift; sourceTree = "<group>"; };
+		019433AF1CD20384005863FA /* UIButton-Extenstion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton-Extenstion.swift"; sourceTree = "<group>"; };
+		019433B11CD20681005863FA /* CHPhotoFlowlayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHPhotoFlowlayout.swift; sourceTree = "<group>"; };
+		019433B31CD20946005863FA /* CHPhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHPhotoCell.swift; sourceTree = "<group>"; };
 		2504D30DA1F6858E11354CDF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A3B4BE24ABDF8E0AC7BBFA9A /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1B3099FFA39C03814180C3B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -164,6 +172,9 @@
 		0194339F1CD1AF17005863FA /* PhotoBrowser */ = {
 			isa = PBXGroup;
 			children = (
+				019433AB1CD1FF09005863FA /* CHShowPhotoViewController.swift */,
+				019433B11CD20681005863FA /* CHPhotoFlowlayout.swift */,
+				019433B31CD20946005863FA /* CHPhotoCell.swift */,
 			);
 			path = PhotoBrowser;
 			sourceTree = "<group>";
@@ -172,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				019433A31CD1B047005863FA /* AFNTool.swift */,
+				019433AF1CD20384005863FA /* UIButton-Extenstion.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -380,7 +392,11 @@
 			files = (
 				019433A61CD1C04B005863FA /* Shop.swift in Sources */,
 				019433A21CD1AF17005863FA /* ViewController.swift in Sources */,
+				019433B21CD20681005863FA /* CHPhotoFlowlayout.swift in Sources */,
+				019433B41CD20946005863FA /* CHPhotoCell.swift in Sources */,
 				0194336C1CD1A09A005863FA /* AppDelegate.swift in Sources */,
+				019433AC1CD1FF09005863FA /* CHShowPhotoViewController.swift in Sources */,
+				019433B01CD20384005863FA /* UIButton-Extenstion.swift in Sources */,
 				019433A81CD1C374005863FA /* CHViewCell.swift in Sources */,
 				019433A11CD1AF17005863FA /* CHFlowLayout.swift in Sources */,
 				019433A41CD1B047005863FA /* AFNTool.swift in Sources */,
