@@ -24,12 +24,5 @@ class CHViewCell: UICollectionViewCell {
             
             imageView.sd_setImageWithURL(url, placeholderImage: UIImage(named: "empty_picture"))
         }
-    }
-    override func layoutSubviews() {
-        super.layoutSubviews()
-    }
-    
-    
-    
-    
+    } 
 }

@@ -79,7 +79,7 @@ extension ViewController {
         
         let vc = CHShowPhotoViewController()
         
-        vc.shop = shops
+        vc.shops = shops
         vc.indexPath = indexPath
         
         presentViewController(vc, animated: true, completion: nil)

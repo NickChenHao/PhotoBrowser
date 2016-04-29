@@ -8,10 +8,11 @@
 
 import UIKit
 
-let PhotoId = "cell"
+
 class CHShowPhotoViewController: UIViewController {
     // MARK:- 定义属性
-    var shop : [Shop]?
+    let PhotoId = "cell"
+    var shops : [Shop]?
     var indexPath : NSIndexPath?
     
     
@@ -24,8 +25,10 @@ class CHShowPhotoViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
+        
+        //滚动到对应的图片
+        showPhotoView.scrollToItemAtIndexPath(indexPath!, atScrollPosition: .Left, animated: false)
     }
-
 }
 
 extension CHShowPhotoViewController {
@@ -35,6 +38,16 @@ extension CHShowPhotoViewController {
         view.addSubview(showPhotoView)
         view.addSubview(saveBtn)
         view.addSubview(backBtn)
+        
+        // MARK:- 设置子控件的frame
+        showPhotoView.frame = view.bounds
+        let BtnW : CGFloat = 90
+        let BtnH : CGFloat = 32
+        let BtnY : CGFloat = UIScreen.mainScreen().bounds.height - BtnH - 20
+        let saveX : CGFloat = UIScreen.mainScreen().bounds.width - BtnW - 20
+        backBtn.frame = CGRect(x: 20, y: BtnY, width: BtnW, height: BtnH)
+        saveBtn.frame = CGRect(x: saveX, y: BtnY, width: BtnW, height: BtnH)
+        
         //监听按钮的点击
         saveBtn.addTarget(self, action: #selector(CHShowPhotoViewController.saveBtnClick), forControlEvents: .TouchUpInside)
         backBtn.addTarget(self, action: #selector(CHShowPhotoViewController.backBtnClick), forControlEvents: .TouchUpInside)
@@ -43,24 +56,17 @@ extension CHShowPhotoViewController {
         showPhotoView.dataSource = self
         
     }
-    
-    // MARK:- 设置子控件的frame
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        showPhotoView.frame = view.bounds
-        let BtnW : CGFloat = 90
-        let BtnH : CGFloat = 32
-        let BtnY : CGFloat = UIScreen.mainScreen().bounds.height - BtnH - 20
-        let saveX : CGFloat = UIScreen.mainScreen().bounds.width - BtnW - 20
-        backBtn.frame = CGRect(x: 20, y: BtnY, width: BtnW, height: BtnH)
-        saveBtn.frame = CGRect(x: saveX, y: BtnY, width: BtnW, height: BtnH)
-    }
 }
 // MARK:- 按钮的点击
 extension CHShowPhotoViewController {
     @objc private func saveBtnClick() {
-        print("save")
+        
+        //取出当前显示的cell
+        let cell = showPhotoView.visibleCells().first as! CHPhotoCell
+        
+        let image = cell.imageView.image
+        //保存到系统相册
+        UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
     }
     @objc private func backBtnClick() {
         dismissViewControllerAnimated(true, completion: nil)
@@ -70,7 +76,7 @@ extension CHShowPhotoViewController {
 extension CHShowPhotoViewController : UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return shop?.count ?? 0
+        return shops?.count ?? 0
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -78,6 +84,7 @@ extension CHShowPhotoViewController : UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(PhotoId, forIndexPath: indexPath)
         as! CHPhotoCell
         
+        cell.shop = shops?[indexPath.item]
         return cell
     }
     

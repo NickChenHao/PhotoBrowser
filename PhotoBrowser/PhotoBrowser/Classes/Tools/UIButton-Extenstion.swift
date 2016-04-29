@@ -11,6 +11,7 @@ import UIKit
 extension UIButton {
     
     convenience init(title: String ,bkColor: UIColor ,fontSize: CGFloat){
+        self.init()
         
         setTitle(title, forState: .Normal)
         backgroundColor = bkColor
