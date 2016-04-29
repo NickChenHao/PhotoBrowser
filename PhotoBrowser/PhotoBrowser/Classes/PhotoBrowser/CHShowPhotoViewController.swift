@@ -87,7 +87,4 @@ extension CHShowPhotoViewController : UICollectionViewDataSource {
         cell.shop = shops?[indexPath.item]
         return cell
     }
-    
-    
-    
 }

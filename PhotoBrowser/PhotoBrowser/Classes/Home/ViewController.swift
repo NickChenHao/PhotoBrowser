@@ -82,6 +82,15 @@ extension ViewController {
         vc.shops = shops
         vc.indexPath = indexPath
         
+        //3d翻转modal
+//        vc.modalTransitionStyle = .FlipHorizontal
+        
+        //不让背景为黑色
+        vc.modalPresentationStyle = .Custom
+        //设置代理(自定义动画)
+        vc.transitioningDelegate = customAnimation
+        
+        
         presentViewController(vc, animated: true, completion: nil)
         
     }
