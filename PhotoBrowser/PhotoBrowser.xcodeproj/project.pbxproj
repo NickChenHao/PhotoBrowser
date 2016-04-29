@@ -23,6 +23,7 @@
 		019433B21CD20681005863FA /* CHPhotoFlowlayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019433B11CD20681005863FA /* CHPhotoFlowlayout.swift */; };
 		019433B41CD20946005863FA /* CHPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019433B31CD20946005863FA /* CHPhotoCell.swift */; };
 		019433B61CD355C5005863FA /* customAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019433B51CD355C5005863FA /* customAnimation.swift */; };
+		01F143B31CD3A91B0025FD71 /* common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F143B21CD3A91B0025FD71 /* common.swift */; };
 		B2E8BBC24701DD367ABB7B1F /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B4BE24ABDF8E0AC7BBFA9A /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,7 @@
 		019433B11CD20681005863FA /* CHPhotoFlowlayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHPhotoFlowlayout.swift; sourceTree = "<group>"; };
 		019433B31CD20946005863FA /* CHPhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHPhotoCell.swift; sourceTree = "<group>"; };
 		019433B51CD355C5005863FA /* customAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customAnimation.swift; sourceTree = "<group>"; };
+		01F143B21CD3A91B0025FD71 /* common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = common.swift; sourceTree = "<group>"; };
 		2504D30DA1F6858E11354CDF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A3B4BE24ABDF8E0AC7BBFA9A /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1B3099FFA39C03814180C3B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			children = (
 				019433A31CD1B047005863FA /* AFNTool.swift */,
 				019433AF1CD20384005863FA /* UIButton-Extenstion.swift */,
+				01F143B21CD3A91B0025FD71 /* common.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				0194336C1CD1A09A005863FA /* AppDelegate.swift in Sources */,
 				019433AC1CD1FF09005863FA /* CHShowPhotoViewController.swift in Sources */,
 				019433B01CD20384005863FA /* UIButton-Extenstion.swift in Sources */,
+				01F143B31CD3A91B0025FD71 /* common.swift in Sources */,
 				019433A81CD1C374005863FA /* CHViewCell.swift in Sources */,
 				019433A11CD1AF17005863FA /* CHFlowLayout.swift in Sources */,
 				019433A41CD1B047005863FA /* AFNTool.swift in Sources */,

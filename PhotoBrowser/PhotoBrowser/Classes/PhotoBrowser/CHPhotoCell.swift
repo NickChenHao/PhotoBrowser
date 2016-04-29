@@ -36,7 +36,7 @@ class CHPhotoCell: UICollectionViewCell {
             let url = NSURL(string: BigUrlString)
             imageView.sd_setImageWithURL(url, placeholderImage: smallImage) { (image, error, type, url) in
                 //设置设置imageView的frame
-                self.imageView.frame = self.currentImageFrame(image)
+                self.imageView.frame = currentImageFrame(image)
             }
         }
     }
@@ -52,18 +52,6 @@ class CHPhotoCell: UICollectionViewCell {
     }
 }
 
-extension CHPhotoCell {
-    
-    private func currentImageFrame(image : UIImage) -> CGRect {
-        
-        let x : CGFloat = 0
-        let width = UIScreen.mainScreen().bounds.width
-        let height = width * image.size.height / image.size.width
-        let y = (UIScreen.mainScreen().bounds.height - height) * 0.5
-        
-        return CGRect(x: x, y: y, width: width, height: height)
-    }
-}
 
 
 
