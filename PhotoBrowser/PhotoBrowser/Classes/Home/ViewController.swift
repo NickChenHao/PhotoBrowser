@@ -87,12 +87,13 @@ extension ViewController {
 //        vc.modalTransitionStyle = .FlipHorizontal
         
         //不让背景为黑色
-//        vc.modalPresentationStyle = .Custom
+        vc.modalPresentationStyle = .Custom
         //设置代理(自定义动画)
         vc.transitioningDelegate = customAnimation
         
         customAnimation.indexPath = indexPath
         customAnimation.presentDelegate = self
+        customAnimation.disMissDelegate = vc
 
         presentViewController(vc, animated: true, completion: nil)
     }

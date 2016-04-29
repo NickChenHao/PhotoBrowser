@@ -21,6 +21,12 @@ class CHShowPhotoViewController: UIViewController {
     private lazy var backBtn : UIButton = UIButton(title: "返回", bkColor: UIColor.darkGrayColor(), fontSize: 14)
     private lazy var showPhotoView : UICollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: CHPhotoFlowlayout())
     
+    override func loadView() {
+        super.loadView()
+        
+        view.frame.size.width += 15
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,6 +35,11 @@ class CHShowPhotoViewController: UIViewController {
         //滚动到对应的图片
         showPhotoView.scrollToItemAtIndexPath(indexPath!, atScrollPosition: .Left, animated: false)
     }
+}
+
+extension CHShowPhotoViewController {
+    
+    
 }
 
 extension CHShowPhotoViewController {
@@ -57,6 +68,37 @@ extension CHShowPhotoViewController {
         
     }
 }
+
+// MARK:- 实现dimissDelegat中的方法
+extension CHShowPhotoViewController : DisMissDelegate {
+    func currentIndexPath() -> NSIndexPath {
+        // 1.获取正在显示的cell
+        let cell = showPhotoView.visibleCells().first!
+        
+        // 2.获取indexPath
+        return showPhotoView.indexPathForCell(cell)!
+    }
+    
+    func imageView() -> UIImageView {
+        // 1.创建UIImageView对象
+        let imageView = UIImageView()
+        
+        // 2.设置对象的图片
+        // 2.1.获取正在显示的cell
+        let cell = showPhotoView.visibleCells().first as! CHPhotoCell
+        
+        // 2.2.取出图片
+        imageView.image = cell.imageView.image
+        
+        // 3.设置imageView的属性
+        imageView.contentMode = .ScaleAspectFill
+        imageView.clipsToBounds = true
+        
+        return imageView
+    }
+}
+
+
 // MARK:- 按钮的点击
 extension CHShowPhotoViewController {
     @objc private func saveBtnClick() {

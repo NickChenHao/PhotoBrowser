@@ -10,10 +10,16 @@ import UIKit
 
 // MARK:- 定义弹出View的协议
 protocol PresentDelegate : class{
-    
+    ///起始尺寸
     func homeRect(indexPath : NSIndexPath) -> CGRect
+    ///最终尺寸
     func photoBrowserRect(indexPath : NSIndexPath) -> CGRect
+    ///临时的imageView
     func imageView(indexPath : NSIndexPath) -> UIImageView
+}
+protocol DisMissDelegate : class {
+    func currentIndexPath() -> NSIndexPath
+    func imageView() -> UIImageView
 }
 
 class CustomAnimation: NSObject {
@@ -22,6 +28,8 @@ class CustomAnimation: NSObject {
     ///代理属性
     weak var presentDelegate : PresentDelegate?
     var indexPath : NSIndexPath?
+    
+    weak var disMissDelegate : DisMissDelegate?
 }
 
 // MARK:- 转场动画的代理
@@ -100,14 +108,31 @@ extension CustomAnimation : UIViewControllerAnimatedTransitioning {
     func animationForDismissedView(transitionContext: UIViewControllerContextTransitioning) {
         //取出消失的View
         let dismissedView = transitionContext.viewForKey(UITransitionContextFromViewKey)!
+        
+        dismissedView.removeFromSuperview()
+        
+        guard let presentDelegate = presentDelegate else {
+            return
+        }
+        guard let disMissDelegate = disMissDelegate else {
+            return
+        }
+        let imageView = disMissDelegate.imageView()
+        transitionContext.containerView()?.addSubview(imageView)
+        
+        // 2.2.获取当前正在显示的indexPath
+        let indexPath = disMissDelegate.currentIndexPath()
+        
+        // 2.3.设置起始位置
+        imageView.frame = presentDelegate.photoBrowserRect(indexPath)
+        
         //执行动画
         UIView.animateWithDuration(transitionDuration(transitionContext), animations: { 
            
-            dismissedView.alpha = 0.0
+            imageView.frame = presentDelegate.homeRect(indexPath)
             
             }) { (_) in
-                //移除dismissedView
-                dismissedView.removeFromSuperview()
+                
                 transitionContext.completeTransition(true)
         }
         
